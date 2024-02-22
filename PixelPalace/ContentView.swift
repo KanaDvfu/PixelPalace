@@ -22,13 +22,17 @@ struct ContentView: View {
                         Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
                     }
                 }
-                .onDelete(perform: deleteItems)
             }
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
+            .navigationSplitViewColumnWidth(min: 210, ideal: 230)
             .toolbar {
                 ToolbarItem {
-                    Button(action: addItem) {
+                    Button(action: addItemF) {
                         Label("Add Item", systemImage: "plus")
+                    }
+                }
+                ToolbarItem {
+                    Button(action: deleteAllItemsF) {
+                        Label("Delete All Items", systemImage: "bolt.trianglebadge.exclamationmark.fill")
                     }
                 }
             }
@@ -37,17 +41,17 @@ struct ContentView: View {
         }
     }
 
-    private func addItem() {
+    private func addItemF() {
         withAnimation {
             let newItem = Item(timestamp: Date())
             modelContext.insert(newItem)
         }
     }
-
-    private func deleteItems(offsets: IndexSet) {
+    
+    private func deleteAllItemsF() {
         withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+            for item in items {
+                modelContext.delete(item)
             }
         }
     }
