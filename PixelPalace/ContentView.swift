@@ -11,7 +11,7 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
-
+    
     var body: some View {
         NavigationSplitView {
             List {
@@ -26,9 +26,7 @@ struct ContentView: View {
             .navigationSplitViewColumnWidth(min: 210, ideal: 230)
             .toolbar {
                 ToolbarItem {
-                    Button(action: addItemF) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+                    AddItemB(modelContext: modelContext)
                 }
                 ToolbarItem {
                     Button(action: deleteAllItemsF) {
@@ -38,13 +36,6 @@ struct ContentView: View {
             }
         } detail: {
             Text("Select an item")
-        }
-    }
-
-    private func addItemF() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
         }
     }
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D073C0282B877EB1000AD073 /* AddItemF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D073C0272B877EB1000AD073 /* AddItemF.swift */; };
+		D073C02A2B877F93000AD073 /* AddItemB.swift in Sources */ = {isa = PBXBuildFile; fileRef = D073C0292B877F93000AD073 /* AddItemB.swift */; };
 		D0F8ABAD2B8747A200A6C7FA /* PixelPalaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8ABAC2B8747A200A6C7FA /* PixelPalaceApp.swift */; };
 		D0F8ABAF2B8747A200A6C7FA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8ABAE2B8747A200A6C7FA /* ContentView.swift */; };
 		D0F8ABB12B8747A200A6C7FA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8ABB02B8747A200A6C7FA /* Item.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D073C0272B877EB1000AD073 /* AddItemF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemF.swift; sourceTree = "<group>"; };
+		D073C0292B877F93000AD073 /* AddItemB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemB.swift; sourceTree = "<group>"; };
 		D0F8ABA92B8747A200A6C7FA /* PixelPalace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelPalace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F8ABAC2B8747A200A6C7FA /* PixelPalaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelPalaceApp.swift; sourceTree = "<group>"; };
 		D0F8ABAE2B8747A200A6C7FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -35,6 +39,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D073C02B2B878061000AD073 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				D073C0272B877EB1000AD073 /* AddItemF.swift */,
+			);
+			path = Functions;
+			sourceTree = "<group>";
+		};
+		D073C02C2B878081000AD073 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D0F8ABB02B8747A200A6C7FA /* Item.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D073C02E2B8780AB000AD073 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D073C0292B877F93000AD073 /* AddItemB.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		D0F8ABA02B8747A100A6C7FA = {
 			isa = PBXGroup;
 			children = (
@@ -56,7 +84,9 @@
 			children = (
 				D0F8ABAC2B8747A200A6C7FA /* PixelPalaceApp.swift */,
 				D0F8ABAE2B8747A200A6C7FA /* ContentView.swift */,
-				D0F8ABB02B8747A200A6C7FA /* Item.swift */,
+				D073C02C2B878081000AD073 /* Model */,
+				D073C02B2B878061000AD073 /* Functions */,
+				D073C02E2B8780AB000AD073 /* UI */,
 				D0F8ABB22B8747A600A6C7FA /* Assets.xcassets */,
 				D0F8ABB72B8747A600A6C7FA /* PixelPalace.entitlements */,
 				D0F8ABB42B8747A600A6C7FA /* Preview Content */,
@@ -142,6 +172,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D073C02A2B877F93000AD073 /* AddItemB.swift in Sources */,
+				D073C0282B877EB1000AD073 /* AddItemF.swift in Sources */,
 				D0F8ABAF2B8747A200A6C7FA /* ContentView.swift in Sources */,
 				D0F8ABB12B8747A200A6C7FA /* Item.swift in Sources */,
 				D0F8ABAD2B8747A200A6C7FA /* PixelPalaceApp.swift in Sources */,
