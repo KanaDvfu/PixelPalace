@@ -1,0 +1,34 @@
+//
+//  ToolbarContent.swift
+//  PixelPalace
+//
+//  Created by Евгений Канашкин on 24.02.2024.
+//
+
+import SwiftUI
+
+struct ToolbarContent: ToolbarContent {
+    @Environment(\.modelContext) private var modelContext
+    
+    private func addItem() {
+        addItemF(modelContext: modelContext)
+    }
+    
+    private func deleteAllItems() {
+        deleteAllItemsF(modelContext: modelContext)
+    }
+    
+    var body: some ToolbarContent {
+        ToolbarItemGroup {
+            Button(action: addItem) {
+                Label("Add Item", systemImage: "plus")
+            }
+//            Button(action: cancelF) {
+//                Label("Cancel", systemImage: "arrow.uturn.backward")
+//            }
+            Button(action: deleteAllItems) {
+                Label("Delete All Items", systemImage: "bolt.trianglebadge.exclamationmark.fill")
+            }
+        }
+    }
+}
