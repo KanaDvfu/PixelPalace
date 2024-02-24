@@ -10,7 +10,14 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.undoManager) var undoManager
     @Query private var items: [Item]
+    
+    @State private var doDeleteAllAlert = false
+    
+    private func deleteAll() {
+        deleteAllF(modelContext: modelContext, items: items)
+    }
     
     var body: some View {
         NavigationSplitView {
@@ -23,27 +30,26 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationSplitViewColumnWidth(min: 210, ideal: 230)
+            .navigationSplitViewColumnWidth(min: 250, ideal: 260)
             .toolbar {
-                ToolbarItem {
-                    AddItemB(modelContext: modelContext)
-                }
-                ToolbarItem {
-                    Button(action: deleteAllItemsF) {
-                        Label("Delete All Items", systemImage: "bolt.trianglebadge.exclamationmark.fill")
-                    }
-                }
+                ToolbarContentUI(items: items, doDeleteAllAlert: $doDeleteAllAlert)
             }
         } detail: {
             Text("Select an item")
         }
-    }
-    
-    private func deleteAllItemsF() {
-        withAnimation {
-            for item in items {
-                modelContext.delete(item)
+        
+        // on DeleteAll
+        .alert("Delete All?",
+            isPresented: $doDeleteAllAlert
+        ) {
+            Button(role: .destructive, action: deleteAll) {
+                Text("Delete All")
             }
+            Button(role: .cancel, action: {}) {
+                Text("Cancel")
+            }
+        } message: {
+            Text("Are you sure you want to delete all?")
         }
     }
 }
