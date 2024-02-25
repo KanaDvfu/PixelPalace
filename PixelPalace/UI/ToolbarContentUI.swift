@@ -7,30 +7,14 @@
 
 import SwiftUI
 
-/// ToolbarGroup which contains buttons.
+/// ToolbarGroup which contains buttons. Needs access to [items] for deleteAllItems button.
 struct ToolbarContentUI: ToolbarContent {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.undoManager) var undoManager
     
     var items : [Item]
     
-    @Binding var doDeleteAllAlert : Bool
-    
-    //
-    
-    private func addOne() {
-        addOneF(modelContext: modelContext)
-    }
-    
-    private func undo() {
-        undoF(undoManager: undoManager)
-    }
-    
-    private func toggleDoDeleteAllAlert() {
-        doDeleteAllAlert.toggle()
-    }
-    
-    //
+    @Binding var doDeleteAllAlertS : Bool
     
     var body: some ToolbarContent {
         ToolbarItemGroup {
@@ -43,6 +27,36 @@ struct ToolbarContentUI: ToolbarContent {
             Button(action: toggleDoDeleteAllAlert) {
                 Label("Delete All", systemImage: "bolt.trianglebadge.exclamationmark.fill")
             }
+            .alert("Delete All?",
+                isPresented: $doDeleteAllAlertS
+            ) {
+                Button(role: .destructive, action: deleteAll) {
+                    Text("Delete All")
+                }
+                Button(role: .cancel, action: {}) {
+                    Text("Cancel")
+                }
+            } message: {
+                Text("Are you sure you want to delete all?")
+            }
         }
+    }
+}
+
+extension ToolbarContentUI {
+    private func addOne() {
+        addOneF(modelContext: modelContext)
+    }
+    
+    private func undo() {
+        undoF(undoManager: undoManager)
+    }
+    
+    private func toggleDoDeleteAllAlert() {
+        doDeleteAllAlertS.toggle()
+    }
+    
+    private func deleteAll() {
+        deleteAllF(modelContext: modelContext, items: items)
     }
 }

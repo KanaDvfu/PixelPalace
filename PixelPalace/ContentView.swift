@@ -13,11 +13,7 @@ struct ContentView: View {
     @Environment(\.undoManager) var undoManager
     @Query private var items: [Item]
     
-    @State private var doDeleteAllAlert = false
-    
-    private func deleteAll() {
-        deleteAllF(modelContext: modelContext, items: items)
-    }
+    @State private var doDeleteAllAlertS = false
     
     var body: some View {
         NavigationSplitView {
@@ -26,30 +22,16 @@ struct ContentView: View {
                     NavigationLink {
                         Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
                     } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        SidebarItemUI(item: item)
                     }
                 }
             }
             .navigationSplitViewColumnWidth(min: 250, ideal: 260)
             .toolbar {
-                ToolbarContentUI(items: items, doDeleteAllAlert: $doDeleteAllAlert)
+                ToolbarContentUI(items: items, doDeleteAllAlertS: $doDeleteAllAlertS)
             }
         } detail: {
             Text("Select an item")
-        }
-        
-        // on DeleteAll
-        .alert("Delete All?",
-            isPresented: $doDeleteAllAlert
-        ) {
-            Button(role: .destructive, action: deleteAll) {
-                Text("Delete All")
-            }
-            Button(role: .cancel, action: {}) {
-                Text("Cancel")
-            }
-        } message: {
-            Text("Are you sure you want to delete all?")
         }
     }
 }

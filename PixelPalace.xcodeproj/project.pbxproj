@@ -17,6 +17,9 @@
 		D0F8ABB12B8747A200A6C7FA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8ABB02B8747A200A6C7FA /* Item.swift */; };
 		D0F8ABB32B8747A600A6C7FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0F8ABB22B8747A600A6C7FA /* Assets.xcassets */; };
 		D0F8ABB62B8747A600A6C7FA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0F8ABB52B8747A600A6C7FA /* Preview Assets.xcassets */; };
+		D0FAA00B2B8AEC8E00A92EF3 /* SidebarItemUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FAA00A2B8AEC8E00A92EF3 /* SidebarItemUI.swift */; };
+		D0FAA00D2B8B2A3B00A92EF3 /* RenameOneF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FAA00C2B8B2A3B00A92EF3 /* RenameOneF.swift */; };
+		D0FAA00F2B8B31C600A92EF3 /* ReiconOneF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FAA00E2B8B31C600A92EF3 /* ReiconOneF.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		D0F8ABB22B8747A600A6C7FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0F8ABB52B8747A600A6C7FA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D0F8ABB72B8747A600A6C7FA /* PixelPalace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PixelPalace.entitlements; sourceTree = "<group>"; };
+		D0FAA00A2B8AEC8E00A92EF3 /* SidebarItemUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarItemUI.swift; sourceTree = "<group>"; };
+		D0FAA00C2B8B2A3B00A92EF3 /* RenameOneF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameOneF.swift; sourceTree = "<group>"; };
+		D0FAA00E2B8B31C600A92EF3 /* ReiconOneF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReiconOneF.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				D03427CF2B89F21600C62A9F /* ToolbarContentUI.swift */,
+				D0FAA00A2B8AEC8E00A92EF3 /* SidebarItemUI.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -60,6 +67,8 @@
 				D03427CB2B89C6EF00C62A9F /* DeleteOneF.swift */,
 				D03427CD2B89C70B00C62A9F /* DeleteAllF.swift */,
 				D041043E2B89F93800EC4307 /* UndoF.swift */,
+				D0FAA00C2B8B2A3B00A92EF3 /* RenameOneF.swift */,
+				D0FAA00E2B8B31C600A92EF3 /* ReiconOneF.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -186,9 +195,12 @@
 				D0F8ABAF2B8747A200A6C7FA /* ContentView.swift in Sources */,
 				D03427CC2B89C6EF00C62A9F /* DeleteOneF.swift in Sources */,
 				D041043F2B89F93800EC4307 /* UndoF.swift in Sources */,
+				D0FAA00D2B8B2A3B00A92EF3 /* RenameOneF.swift in Sources */,
+				D0FAA00B2B8AEC8E00A92EF3 /* SidebarItemUI.swift in Sources */,
 				D03427CE2B89C70B00C62A9F /* DeleteAllF.swift in Sources */,
 				D0F8ABB12B8747A200A6C7FA /* Item.swift in Sources */,
 				D0F8ABAD2B8747A200A6C7FA /* PixelPalaceApp.swift in Sources */,
+				D0FAA00F2B8B31C600A92EF3 /* ReiconOneF.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
