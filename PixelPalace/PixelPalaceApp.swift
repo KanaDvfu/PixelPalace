@@ -15,6 +15,9 @@ struct PixelPalaceApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: Item.self, isUndoEnabled: true)
+        .modelContainer(for: Item.self,
+                        isAutosaveEnabled: true,
+                        isUndoEnabled: true
+        )
     }
 }

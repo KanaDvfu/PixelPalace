@@ -11,9 +11,9 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.undoManager) var undoManager
-    @Query private var items: [Item]
-    
+    @Query(sort: \Item.icon, order: .reverse) private var items: [Item]
     @State private var doDeleteAllAlertS = false
+    @State private var doUndoAlertS = false
     
     var body: some View {
         NavigationSplitView {
@@ -28,7 +28,7 @@ struct ContentView: View {
             }
             .navigationSplitViewColumnWidth(min: 250, ideal: 260)
             .toolbar {
-                ToolbarContentUI(items: items, doDeleteAllAlertS: $doDeleteAllAlertS)
+                ToolbarContentUI(items: items, doDeleteAllAlertS: $doDeleteAllAlertS, doUndoAlertS: $doUndoAlertS)
             }
         } detail: {
             Text("Select an item")

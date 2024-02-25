@@ -9,7 +9,7 @@ import SwiftUI
 
 /// Contains Label (icon) and a TextField (name) of an [item]
 struct SidebarItemUI: View {
-    let item: Item
+    var item: Item
     
     @State private var itemNameS: String
     @FocusState private var itemNameIsFocused: Bool
@@ -22,9 +22,17 @@ struct SidebarItemUI: View {
     
     var body: some View {
         HStack {
-            Label("Image", systemImage: item.icon ?? "folder")
+            Label("Image", systemImage: item.icon ?? "folder.badge.gear")
                 .labelStyle(.iconOnly)
-                .contextMenu {
+            TextField(
+                item.name ?? "No name",
+                text: $itemNameS)
+            .focused($itemNameIsFocused)
+            .onSubmit {
+                renameOne()
+            }
+            .contextMenu {
+                Menu("Change Icon", systemImage: item.icon ?? "folder.badge.gear") {
                     Button {
                         reiconOne(icon: "folder")
                     } label: {
@@ -37,13 +45,6 @@ struct SidebarItemUI: View {
                         Label("folder.fill", systemImage: "folder.fill").labelStyle(.iconOnly)
                     }
                 }
-
-            TextField(
-                item.name ?? "No name",
-                text: $itemNameS)
-            .focused($itemNameIsFocused)
-            .onSubmit {
-                renameOne()
             }
         }
     }

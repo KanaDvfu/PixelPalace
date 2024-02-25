@@ -15,15 +15,30 @@ struct ToolbarContentUI: ToolbarContent {
     var items : [Item]
     
     @Binding var doDeleteAllAlertS : Bool
+    @Binding var doUndoAlertS : Bool
     
     var body: some ToolbarContent {
         ToolbarItemGroup {
             Button(action: addOne) {
                 Label("Add Item", systemImage: "plus")
             }
-            Button(action: undo) {
+            
+            Button(action: toggleDoUndoAlert) {
                 Label("Undo", systemImage: "arrow.uturn.left")
             }
+            .alert("Undo Last Change?",
+                isPresented: $doUndoAlertS
+            ) {
+                Button(role: .destructive, action: undo) {
+                    Text("Undo")
+                }
+                Button(role: .cancel, action: {}) {
+                    Text("Cancel")
+                }
+            } message: {
+                Text("Undo may work not as expected. It may cause an error. Use it on your own risk.")
+            }
+            
             Button(action: toggleDoDeleteAllAlert) {
                 Label("Delete All", systemImage: "bolt.trianglebadge.exclamationmark.fill")
             }
@@ -46,6 +61,10 @@ struct ToolbarContentUI: ToolbarContent {
 extension ToolbarContentUI {
     private func addOne() {
         addOneF(modelContext: modelContext)
+    }
+    
+    private func toggleDoUndoAlert() {
+        doUndoAlertS.toggle()
     }
     
     private func undo() {
