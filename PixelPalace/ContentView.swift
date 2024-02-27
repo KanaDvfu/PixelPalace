@@ -11,7 +11,10 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.undoManager) var undoManager
-    @Query(sort: \Item.icon, order: .reverse) private var items: [Item]
+    
+    @Query(sort: [SortDescriptor(\Item.icon, order: .reverse),
+                  SortDescriptor(\Item.name, order: .forward)]) private var items: [Item]
+    
     @State private var doDeleteAllAlertS = false
     @State private var doUndoAlertS = false
     

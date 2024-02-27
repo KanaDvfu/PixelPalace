@@ -12,7 +12,7 @@ import SwiftData
 final class Item {
     var timestamp: Date
     var name: String?
-    var icon: String?
+    var icon: String = "folder.badge.gear"
     
     init(timestamp: Date) {
         self.timestamp = timestamp

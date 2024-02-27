@@ -9,6 +9,7 @@ import SwiftUI
 
 /// Contains Label (icon) and a TextField (name) of an [item]
 struct SidebarItemUI: View {
+    @Environment(\.modelContext) private var modelContext
     var item: Item
     
     @State private var itemNameS: String
@@ -22,7 +23,7 @@ struct SidebarItemUI: View {
     
     var body: some View {
         HStack {
-            Label("Image", systemImage: item.icon ?? "folder.badge.gear")
+            Label("Image", systemImage: item.icon)
                 .labelStyle(.iconOnly)
             TextField(
                 item.name ?? "No name",
@@ -32,7 +33,7 @@ struct SidebarItemUI: View {
                 renameOne()
             }
             .contextMenu {
-                Menu("Change Icon", systemImage: item.icon ?? "folder.badge.gear") {
+                Menu("Change Icon", systemImage: item.icon) {
                     Button {
                         reiconOne(icon: "folder")
                     } label: {
@@ -52,10 +53,10 @@ struct SidebarItemUI: View {
 
 extension SidebarItemUI {
     private func renameOne() {
-        renameOneF(item: item, text: itemNameS)
+        renameOneF(modelContext: modelContext, item: item, text: itemNameS)
     }
     
     private func reiconOne(icon: String) {
-        reiconOneF(item: item, icon: icon)
+        reiconOneF(modelContext: modelContext, item: item, icon: icon)
     }
 }

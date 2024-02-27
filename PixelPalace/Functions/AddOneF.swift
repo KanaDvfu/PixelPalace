@@ -13,5 +13,6 @@ func addOneF(modelContext: ModelContext) {
     withAnimation {
         let newItem = Item(timestamp: Date())
         modelContext.insert(newItem)
+        try? modelContext.save()
     }
 }

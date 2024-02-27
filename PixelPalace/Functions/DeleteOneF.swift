@@ -12,5 +12,6 @@ import SwiftData
 func deleteOneF(modelContext: ModelContext, item: Item) {
     withAnimation {
         modelContext.delete(item)
+        try? modelContext.save()
     }
 }

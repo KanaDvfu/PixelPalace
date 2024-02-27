@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 /// Sets [item] name to [text]
-func renameOneF(item: Item, text: String) {
+func renameOneF(modelContext: ModelContext, item: Item, text: String) {
     withAnimation {
         item.name = text
+        try? modelContext.save()
     }
 }

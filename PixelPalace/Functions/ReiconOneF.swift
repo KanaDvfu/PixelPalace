@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 /// Sets [item] icon to [icon]
-func reiconOneF(item: Item, icon: String) {
+func reiconOneF(modelContext: ModelContext, item: Item, icon: String) {
     withAnimation {
         item.icon = icon
+        try? modelContext.save()
     }
 }
